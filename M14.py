@@ -143,6 +143,9 @@ if __name__ == "__main__":
                     except ValueError as e:
                         print(f"Error: {e}")
                 elif sub_pilihan == "2":
+                    if len(kampus.dosen_list) == 0:
+                        print("Error: Belum ada data Dosen yang tersedia")
+                        continue
                     id_dosen = input("Masukkan ID Dosen: ")
                     try:
                         print(kampus.detail_dosen(id_dosen))
@@ -171,6 +174,9 @@ if __name__ == "__main__":
                     except ValueError as e:
                         print(f"Error: {e}")
                 elif sub_pilihan == "2":
+                    if len(kampus.matakuliah_list) == 0:
+                        print("Error: Belum ada data Matakuliah yang tersedia")
+                        continue
                     kode_mk = input("Masukkan Kode Matakuliah: ")
                     try:
                         print(kampus.detail_matakuliah(kode_mk))
@@ -199,6 +205,9 @@ if __name__ == "__main__":
                     except ValueError as e:
                         print(f"Error: {e}")
                 elif sub_pilihan == "2":
+                    if len(kampus.mahasiswa_list) == 0:
+                        print("Error: Belum ada data Mahasiswa yang tersedia")
+                        continue
                     nim = input("Masukkan NIM Mahasiswa: ")
                     try:
                         print(kampus.detail_mahasiswa(nim))
@@ -208,6 +217,16 @@ if __name__ == "__main__":
                     print("Pilihan tidak valid!")
                     
         elif pilihan == "4":
+            if len(kampus.dosen_list) == 0:
+                print("Error: Belum ada data Dosen. Silakan tambahkan Dosen terlebih dahulu")
+                continue
+            if len(kampus.matakuliah_list) == 0:
+                print("Error: Belum ada data Matakuliah. Silakan tambahkan Matakuliah terlebih dahulu")
+                continue
+            if len(kampus.mahasiswa_list) == 0:
+                print("Error: Belum ada data Mahasiswa. Silakan tambahkan Mahasiswa terlebih dahulu")
+                continue
+
             while True:
                 print("\n=== MANAJEMEN PERKULIAHAN ===")
                 print("1. Tambah Perkuliahan")
@@ -229,6 +248,9 @@ if __name__ == "__main__":
                     except ValueError as e:
                         print(f"Error: {e}")
                 elif sub_pilihan == "2":
+                    if len(kampus.perkuliahan_list) == 0:
+                        print("Error: Belum ada data Perkuliahan yang tersedia")
+                        continue
                     id_perkuliahan = input("Masukkan ID Perkuliahan: ")
                     try:
                         print(kampus.detail_perkuliahan(id_perkuliahan))
